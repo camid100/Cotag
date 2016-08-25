@@ -1,0 +1,385 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1491AE87-F847-4614-ADAD-4A26F6C91A6F}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CotagAdministration</RootNamespace>
+    <AssemblyName>CotagAdministration</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit">
+      <HintPath>..\packages\AjaxControlToolkit.7.1005\lib\40\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="AjaxMin">
+      <HintPath>..\packages\AjaxMin.4.97.4951.28483\lib\net40\AjaxMin.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\packages\HtmlAgilityPack.1.4.6\lib\Net40\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="SanitizerProviders">
+      <HintPath>..\Ajax\AjaxControlToolkit.Binary.NET4\SanitizerProviders\SanitizerProviders.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AccessDenied.aspx" />
+    <Content Include="AssemblyPoints.aspx" />
+    <Content Include="Assets\cotagTemplate\mitaLogo2.png" />
+    <Content Include="Assets\cotagTemplate\template.htm" />
+    <Content Include="Assets\admin-gvw-bg.gif" />
+    <Content Include="Assets\ajax-loader.gif" />
+    <Content Include="Assets\BIAdminTools.png" />
+    <Content Include="Assets\bodyBG.jpg" />
+    <Content Include="Assets\Calendar_scheduleHS.png" />
+    <Content Include="Assets\close-icon.png" />
+    <Content Include="Assets\cotagTemplate\1.png" />
+    <Content Include="Assets\cotagTemplate\2.png" />
+    <Content Include="Assets\cotagTemplate\3.png" />
+    <Content Include="Assets\cotagTemplate\4.png" />
+    <Content Include="Assets\cotagTemplate\5.png" />
+    <Content Include="Assets\cotagTemplate\mitaLogo.png" />
+    <Content Include="Assets\favicon.ico" />
+    <Content Include="Assets\headerinside.jpg" />
+    <Content Include="Assets\loadingModal.gif" />
+    <Content Include="Assets\logo.png" />
+    <Content Include="Assets\logoHeader.png" />
+    <Content Include="Assets\logoOnly.png" />
+    <Content Include="Assets\provider.gif" />
+    <Content Include="Assets\swap.png" />
+    <Content Include="Assets\transparent.png" />
+    <Content Include="Assets\Untitled.ico" />
+    <Content Include="Assets\UserImages\userFace.jpg" />
+    <Content Include="Companies.aspx" />
+    <Content Include="Contacts\Contacts.aspx" />
+    <Content Include="CotagDescription.aspx" />
+    <Content Include="CotagDetails.aspx" />
+    <Content Include="CotagZones.aspx" />
+    <Content Include="Default.aspx" />
+    <Content Include="ErrorPage.aspx" />
+    <Content Include="Locations.aspx" />
+    <Content Include="Scripts\funcs.js" />
+    <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.4.1.js" />
+    <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Sites.aspx" />
+    <Content Include="Status.aspx" />
+    <Content Include="Styles\Site.css" />
+    <Content Include="Global.asax" />
+    <Content Include="packages.config" />
+    <Content Include="Zones.aspx" />
+    <Content Include="ZoneTimes.aspx" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\TMSService\ActiveDirectoryUserResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\TMSService\ClientResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\TMSService\ContactInfoResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\TMSService\DepartmentResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\TMSService\LocationResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\TMSService\MailPackageResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\TMSService\MailRuleResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\TMSService\OrganisationResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\TMSService\PhoneResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\TMSService\PortalServiceResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\TMSService\PositionResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\TMSService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\TMSService\SectionResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\TMSService\SiteResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\TMSService\TMSService.disco" />
+    <Content Include="TimeManagement.aspx" />
+    <Content Include="Times.aspx" />
+    <Content Include="Utils.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <None Include="Web References\TMSService\UserDetailsViewResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccessDenied.aspx.cs">
+      <DependentUpon>AccessDenied.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AccessDenied.aspx.designer.cs">
+      <DependentUpon>AccessDenied.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AssemblyPoints.aspx.cs">
+      <DependentUpon>AssemblyPoints.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AssemblyPoints.aspx.designer.cs">
+      <DependentUpon>AssemblyPoints.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Companies.aspx.cs">
+      <DependentUpon>Companies.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Companies.aspx.designer.cs">
+      <DependentUpon>Companies.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Contacts\Contacts.aspx.cs">
+      <DependentUpon>Contacts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contacts\Contacts.aspx.designer.cs">
+      <DependentUpon>Contacts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CotagDescription.aspx.cs">
+      <DependentUpon>CotagDescription.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CotagDescription.aspx.designer.cs">
+      <DependentUpon>CotagDescription.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CotagDetails.aspx.cs">
+      <DependentUpon>CotagDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CotagDetails.aspx.designer.cs">
+      <DependentUpon>CotagDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CotagZones.aspx.cs">
+      <DependentUpon>CotagZones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CotagZones.aspx.designer.cs">
+      <DependentUpon>CotagZones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ErrorPage.aspx.cs">
+      <DependentUpon>ErrorPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ErrorPage.aspx.designer.cs">
+      <DependentUpon>ErrorPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Locations.aspx.cs">
+      <DependentUpon>Locations.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Locations.aspx.designer.cs">
+      <DependentUpon>Locations.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="SiteMaster.master.cs">
+      <DependentUpon>SiteMaster.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SiteMaster.master.designer.cs">
+      <DependentUpon>SiteMaster.master</DependentUpon>
+    </Compile>
+    <Compile Include="Sites.aspx.cs">
+      <DependentUpon>Sites.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sites.aspx.designer.cs">
+      <DependentUpon>Sites.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Status.aspx.cs">
+      <DependentUpon>Status.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Status.aspx.designer.cs">
+      <DependentUpon>Status.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TimeManagement.aspx.cs">
+      <DependentUpon>TimeManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TimeManagement.aspx.designer.cs">
+      <DependentUpon>TimeManagement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Times.aspx.cs">
+      <DependentUpon>Times.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Times.aspx.designer.cs">
+      <DependentUpon>Times.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utils.aspx.cs">
+      <DependentUpon>Utils.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utils.aspx.designer.cs">
+      <DependentUpon>Utils.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\TMSService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Zones.aspx.cs">
+      <DependentUpon>Zones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Zones.aspx.designer.cs">
+      <DependentUpon>Zones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ZoneTimes.aspx.cs">
+      <DependentUpon>ZoneTimes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ZoneTimes.aspx.designer.cs">
+      <DependentUpon>ZoneTimes.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="bin\" />
+    <Folder Include="obj\Debug\TempPE\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Themes\Skin\Skin.skin" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="SiteMaster.master" />
+    <Content Include="Web.sitemap" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <None Include="Web References\TMSService\TMSService.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj">
+      <Project>{87289D2C-7969-43E0-A474-72B32040C39A}</Project>
+      <Name>BusinessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataLayer\DataLayer.csproj">
+      <Project>{6103FD63-049C-459C-8AF0-139FA8D4FD7D}</Project>
+      <Name>DataLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://test.integrationservices.wcf/TMS/TMSService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\TMSService\</RelPath>
+      <UpdateFromURL>http://test.integrationservices.wcf/TMS/TMSService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>CotagAdministration_TMSService_TaskManagementService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>55419</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:55419/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

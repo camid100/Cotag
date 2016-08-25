@@ -1,0 +1,13 @@
+c:\users\cassm199\documents\visual studio 2010\Projects\CotagImport\DataAccess\bin\Debug\DataAccess.dll.config
+c:\users\cassm199\documents\visual studio 2010\Projects\CotagImport\DataAccess\bin\Debug\DataAccess.dll
+c:\users\cassm199\documents\visual studio 2010\Projects\CotagImport\DataAccess\bin\Debug\DataAccess.pdb
+c:\users\cassm199\documents\visual studio 2010\Projects\CotagImport\DataAccess\obj\Debug\DataAccess.dll
+c:\users\cassm199\documents\visual studio 2010\Projects\CotagImport\DataAccess\obj\Debug\DataAccess.pdb
+C:\1\CotagImport\DataAccess\bin\Debug\DataAccess.dll.config
+C:\1\CotagImport\DataAccess\bin\Debug\DataAccess.dll
+C:\1\CotagImport\DataAccess\bin\Debug\DataAccess.pdb
+C:\1\CotagImport\DataAccess\bin\Debug\System.Data.dll
+C:\1\CotagImport\DataAccess\bin\Debug\System.dll
+C:\1\CotagImport\DataAccess\bin\Debug\System.Xml.dll
+C:\1\CotagImport\DataAccess\obj\Debug\DataAccess.dll
+C:\1\CotagImport\DataAccess\obj\Debug\DataAccess.pdb

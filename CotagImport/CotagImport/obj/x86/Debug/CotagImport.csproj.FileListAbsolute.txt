@@ -1,0 +1,33 @@
+c:\users\cassm199\documents\visual studio 2010\Projects\CotagImport\CotagImport\bin\Debug\CotagImport.exe.config
+c:\users\cassm199\documents\visual studio 2010\Projects\CotagImport\CotagImport\bin\Debug\CotagImport.exe
+c:\users\cassm199\documents\visual studio 2010\Projects\CotagImport\CotagImport\bin\Debug\CotagImport.pdb
+c:\users\cassm199\documents\visual studio 2010\Projects\CotagImport\CotagImport\bin\Debug\BusinessLayer.dll
+c:\users\cassm199\documents\visual studio 2010\Projects\CotagImport\CotagImport\bin\Debug\DataAccess.dll
+c:\users\cassm199\documents\visual studio 2010\Projects\CotagImport\CotagImport\bin\Debug\BusinessLayer.pdb
+c:\users\cassm199\documents\visual studio 2010\Projects\CotagImport\CotagImport\bin\Debug\DataAccess.pdb
+c:\users\cassm199\documents\visual studio 2010\Projects\CotagImport\CotagImport\obj\x86\Debug\CotagImport.csprojResolveAssemblyReference.cache
+c:\users\cassm199\documents\visual studio 2010\Projects\CotagImport\CotagImport\obj\x86\Debug\CotagImport.exe
+c:\users\cassm199\documents\visual studio 2010\Projects\CotagImport\CotagImport\obj\x86\Debug\CotagImport.pdb
+C:\Users\cassm199\Documents\Work\Cotag\CotagImport\CotagImport\bin\Debug\CotagImport.exe.config
+C:\Users\cassm199\Documents\Work\Cotag\CotagImport\CotagImport\obj\x86\Debug\CotagImport.exe
+C:\Users\cassm199\Documents\Work\Cotag\CotagImport\CotagImport\obj\x86\Debug\CotagImport.pdb
+C:\Users\cassm199\Documents\Work\Cotag\CotagImport\CotagImport\bin\Debug\CotagImport.exe
+C:\Users\cassm199\Documents\Work\Cotag\CotagImport\CotagImport\bin\Debug\CotagImport.pdb
+C:\Users\cassm199\Documents\Work\Cotag\CotagImport\CotagImport\bin\Debug\BusinessLayer.dll
+C:\Users\cassm199\Documents\Work\Cotag\CotagImport\CotagImport\bin\Debug\DataAccess.dll
+C:\Users\cassm199\Documents\Work\Cotag\CotagImport\CotagImport\bin\Debug\BusinessLayer.pdb
+C:\Users\cassm199\Documents\Work\Cotag\CotagImport\CotagImport\bin\Debug\DataAccess.pdb
+C:\Users\cassm199\Documents\Work\Cotag\CotagImport\CotagImport\obj\x86\Debug\CotagImport.csprojResolveAssemblyReference.cache
+C:\1\CotagImport\CotagImport\bin\Debug\CotagImport.exe.config
+C:\1\CotagImport\CotagImport\bin\Debug\CotagImport.exe
+C:\1\CotagImport\CotagImport\bin\Debug\CotagImport.pdb
+C:\1\CotagImport\CotagImport\bin\Debug\BusinessLayer.dll
+C:\1\CotagImport\CotagImport\bin\Debug\DataAccess.dll
+C:\1\CotagImport\CotagImport\bin\Debug\System.Data.dll
+C:\1\CotagImport\CotagImport\bin\Debug\System.dll
+C:\1\CotagImport\CotagImport\bin\Debug\System.Xml.dll
+C:\1\CotagImport\CotagImport\bin\Debug\BusinessLayer.pdb
+C:\1\CotagImport\CotagImport\bin\Debug\DataAccess.pdb
+C:\1\CotagImport\CotagImport\obj\x86\Debug\CotagImport.csprojResolveAssemblyReference.cache
+C:\1\CotagImport\CotagImport\obj\x86\Debug\CotagImport.exe
+C:\1\CotagImport\CotagImport\obj\x86\Debug\CotagImport.pdb

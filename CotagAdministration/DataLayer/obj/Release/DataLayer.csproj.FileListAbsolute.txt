@@ -1,0 +1,6 @@
+C:\Users\cassm199\Documents\CotagAdmin\CotagAdministration\DataLayer\bin\Release\DataLayer.dll.config
+C:\Users\cassm199\Documents\CotagAdmin\CotagAdministration\DataLayer\bin\Release\DataLayer.dll
+C:\Users\cassm199\Documents\CotagAdmin\CotagAdministration\DataLayer\bin\Release\DataLayer.pdb
+C:\Users\cassm199\Documents\CotagAdmin\CotagAdministration\DataLayer\obj\Release\DataLayer.dll
+C:\Users\cassm199\Documents\CotagAdmin\CotagAdministration\DataLayer\obj\Release\DataLayer.pdb
+C:\Users\cassm199\Documents\CotagAdmin\CotagAdministration\DataLayer\obj\Release\DataLayer.csprojResolveAssemblyReference.cache

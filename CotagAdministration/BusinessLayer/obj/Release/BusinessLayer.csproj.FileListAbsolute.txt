@@ -1,0 +1,8 @@
+C:\Users\cassm199\Documents\CotagAdmin\CotagAdministration\BusinessLayer\bin\Release\BusinessLayer.dll.config
+C:\Users\cassm199\Documents\CotagAdmin\CotagAdministration\BusinessLayer\bin\Release\BusinessLayer.dll
+C:\Users\cassm199\Documents\CotagAdmin\CotagAdministration\BusinessLayer\bin\Release\BusinessLayer.pdb
+C:\Users\cassm199\Documents\CotagAdmin\CotagAdministration\BusinessLayer\bin\Release\DataLayer.dll
+C:\Users\cassm199\Documents\CotagAdmin\CotagAdministration\BusinessLayer\bin\Release\DataLayer.pdb
+C:\Users\cassm199\Documents\CotagAdmin\CotagAdministration\BusinessLayer\obj\Release\BusinessLayer.csprojResolveAssemblyReference.cache
+C:\Users\cassm199\Documents\CotagAdmin\CotagAdministration\BusinessLayer\obj\Release\BusinessLayer.dll
+C:\Users\cassm199\Documents\CotagAdmin\CotagAdministration\BusinessLayer\obj\Release\BusinessLayer.pdb

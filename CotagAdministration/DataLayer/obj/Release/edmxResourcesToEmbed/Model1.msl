@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="db_mita_cotagModelStoreContainer" CdmEntityContainer="db_mita_cotagEntities">
+    <EntitySetMapping Name="tb_AssemblyPoint">
+      <EntityTypeMapping TypeName="db_mita_cotagModel.tb_AssemblyPoint">
+        <MappingFragment StoreEntitySet="tb_AssemblyPoint">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Site_ID" ColumnName="Site_ID" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsLogicallyDeleted" ColumnName="IsLogicallyDeleted" />
+          <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+          <ScalarProperty Name="Createdon" ColumnName="Createdon" />
+          <ScalarProperty Name="Updatedby" ColumnName="Updatedby" />
+          <ScalarProperty Name="Updatedon" ColumnName="Updatedon" />
+          <ScalarProperty Name="RecordVersion" ColumnName="RecordVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_CotagDescription">
+      <EntityTypeMapping TypeName="db_mita_cotagModel.tb_CotagDescription">
+        <MappingFragment StoreEntitySet="tb_CotagDescription">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsLogicallyDeleted" ColumnName="IsLogicallyDeleted" />
+          <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+          <ScalarProperty Name="Createdon" ColumnName="Createdon" />
+          <ScalarProperty Name="Updatedby" ColumnName="Updatedby" />
+          <ScalarProperty Name="Updatedon" ColumnName="Updatedon" />
+          <ScalarProperty Name="RecordVersion" ColumnName="RecordVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_CotagDetail">
+      <EntityTypeMapping TypeName="db_mita_cotagModel.tb_CotagDetail">
+        <MappingFragment StoreEntitySet="tb_CotagDetail">
+          <ScalarProperty Name="projectManager_Cotag" ColumnName="projectManager_Cotag" />
+          <ScalarProperty Name="companyDesc_ID" ColumnName="companyDesc_ID" />
+          <ScalarProperty Name="serviceDesc_ID" ColumnName="serviceDesc_ID" />
+          <ScalarProperty Name="isProvider" ColumnName="isProvider" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CotagNo" ColumnName="CotagNo" />
+          <ScalarProperty Name="IDNo" ColumnName="IDNo" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="AssemblyPoint_ID" ColumnName="AssemblyPoint_ID" />
+          <ScalarProperty Name="telephone" ColumnName="telephone" />
+          <ScalarProperty Name="mobile" ColumnName="mobile" />
+          <ScalarProperty Name="cotagDesc_ID" ColumnName="cotagDesc_ID" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsLogicallyDeleted" ColumnName="IsLogicallyDeleted" />
+          <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+          <ScalarProperty Name="Createdon" ColumnName="Createdon" />
+          <ScalarProperty Name="Updatedby" ColumnName="Updatedby" />
+          <ScalarProperty Name="Updatedon" ColumnName="Updatedon" />
+          <ScalarProperty Name="RecordVersion" ColumnName="RecordVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_Location">
+      <EntityTypeMapping TypeName="db_mita_cotagModel.tb_Location">
+        <MappingFragment StoreEntitySet="tb_Location">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SysAddress" ColumnName="SysAddress" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IsEntry" ColumnName="IsEntry" />
+          <ScalarProperty Name="IsExit" ColumnName="IsExit" />
+          <ScalarProperty Name="Site_ID" ColumnName="Site_ID" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsLogicallyDeleted" ColumnName="IsLogicallyDeleted" />
+          <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+          <ScalarProperty Name="Createdon" ColumnName="Createdon" />
+          <ScalarProperty Name="Updatedby" ColumnName="Updatedby" />
+          <ScalarProperty Name="Updatedon" ColumnName="Updatedon" />
+          <ScalarProperty Name="RecordVersion" ColumnName="RecordVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_Site">
+      <EntityTypeMapping TypeName="db_mita_cotagModel.tb_Site">
+        <MappingFragment StoreEntitySet="tb_Site">
+          <ScalarProperty Name="EndLevel" ColumnName="EndLevel" />
+          <ScalarProperty Name="StartLevel" ColumnName="StartLevel" />
+          <ScalarProperty Name="SiteNo" ColumnName="SiteNo" />
+          <ScalarProperty Name="SiteDescription" ColumnName="SiteDescription" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsLogicallyDeleted" ColumnName="IsLogicallyDeleted" />
+          <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+          <ScalarProperty Name="Createdon" ColumnName="Createdon" />
+          <ScalarProperty Name="Updatedby" ColumnName="Updatedby" />
+          <ScalarProperty Name="Updatedon" ColumnName="Updatedon" />
+          <ScalarProperty Name="RecordVersion" ColumnName="RecordVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_Status">
+      <EntityTypeMapping TypeName="db_mita_cotagModel.tb_Status">
+        <MappingFragment StoreEntitySet="tb_Status">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="StatusDescription" ColumnName="StatusDescription" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsLogicallyDeleted" ColumnName="IsLogicallyDeleted" />
+          <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+          <ScalarProperty Name="Createdon" ColumnName="Createdon" />
+          <ScalarProperty Name="Updatedby" ColumnName="Updatedby" />
+          <ScalarProperty Name="Updatedon" ColumnName="Updatedon" />
+          <ScalarProperty Name="RecordVersion" ColumnName="RecordVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_CotagDetail">
+      <EntityTypeMapping TypeName="db_mita_cotagModel.vw_CotagDetail">
+        <MappingFragment StoreEntitySet="vw_CotagDetail">
+          <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
+          <ScalarProperty Name="OrganisationName" ColumnName="OrganisationName" />
+          <ScalarProperty Name="AssemblyPoint" ColumnName="AssemblyPoint" />
+          <ScalarProperty Name="CotagNo" ColumnName="CotagNo" />
+          <ScalarProperty Name="SiteName" ColumnName="SiteName" />
+          <ScalarProperty Name="LocationCode" ColumnName="LocationCode" />
+          <ScalarProperty Name="PositionFullName" ColumnName="PositionFullName" />
+          <ScalarProperty Name="SectionFullName" ColumnName="SectionFullName" />
+          <ScalarProperty Name="DepartmentFullName" ColumnName="DepartmentFullName" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="mobile" ColumnName="mobile" />
+          <ScalarProperty Name="telephone" ColumnName="telephone" />
+          <ScalarProperty Name="IDNo" ColumnName="IDNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_Companies">
+      <EntityTypeMapping TypeName="db_mita_cotagModel.tb_Companies">
+        <MappingFragment StoreEntitySet="tb_Companies">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_Services">
+      <EntityTypeMapping TypeName="db_mita_cotagModel.tb_Services">
+        <MappingFragment StoreEntitySet="tb_Services">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

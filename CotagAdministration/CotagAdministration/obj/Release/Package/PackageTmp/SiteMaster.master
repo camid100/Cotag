@@ -1,0 +1,128 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" Inherits="SiteMaster" CodeBehind="~/SiteMaster.master.cs" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title></title>
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <script src="Scripts/jquery-1.10.2.js" type="text/javascript" />
+    <%@ register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="AjaxToolkit" %>
+    <%--
+    <script src="Scripts/funcs.js" type="text/javascript"/>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />--%>
+    <script type="text/javascript">
+            $(document.getElementsById('menubox')).ready(function() {
+   	            // do stuff when div is ready
+   		        alert('loaded');});
+
+                    $("#gridview").load(function ()
+                    {
+                        getHeight();
+                    });
+
+                function getHeight() {
+                        var obj1 = document.getElementById("#menubox");
+                        var obj2 = document.getElementById("#body1");
+                        var obj3 = document.getElementById("#gridView");
+                        if (obj1.style.height() > obj2.style.height()) {
+                            obj3.style.padding-top='2';
+                    }
+                }
+    </script>
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .style1
+        {
+            width: 380px;
+        }
+    </style>
+</head>
+<body>
+    <form id="Form1" runat="server">
+    <div id="container">
+        <div id="preloader">
+            <div class="page">
+                <div class="header">
+                    <div class="title">
+                        <div class="logo" />
+                        <div class="titleHeader">
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                        </div>
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                    </div>
+                    <div class="title2">
+                        <br />
+                        <br />
+                        <br />
+                    </div>
+                    <div class="sitemap">
+                        <asp:SiteMapPath ID="SiteMapPath1" runat="server" Font-Size="Smaller">
+                        </asp:SiteMapPath>
+                    </div>
+                    <div class="title3">
+                        <br />
+                        <asp:Label ID="Label1" runat="server" Font-Names="Arial" Font-Size="XX-Large" Text="Cotag Administration"></asp:Label>
+                        <br />
+                        <AjaxToolkit:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server" />
+                    </div>
+                </div>
+                <div class="menubox" id="menubox">
+                    <asp:TreeView ID="TreeView1" runat="Server" DataSourceID="SiteMapDataSource1">
+                        <LevelStyles>
+                            <asp:TreeNodeStyle CssClass="menuLevel1" />
+                            <asp:TreeNodeStyle CssClass="menuLevel2" />
+                            <asp:TreeNodeStyle CssClass="menuLevel3" />
+                        </LevelStyles>
+                        <HoverNodeStyle CssClass="menuHover" />
+                        <SelectedNodeStyle CssClass="menuSelected" />
+                    </asp:TreeView>
+                    <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" />
+                </div>
+                <div class="body1" id="body1">
+                    <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                        </asp:UpdatePanel>
+                        <asp:UpdateProgress ID="UpdateProgress1" runat="server" AssociatedUpdatePanelID="UpdatePanel1"
+                            DisplayAfter="200">
+                            <ProgressTemplate>
+                                <asp:Panel ID="Panel1" CssClass="overlay" runat="server">
+                                    <asp:Panel ID="Panel2" CssClass="loader" runat="server">
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <img id="Img1" src="~/Assets/loadingModal.gif" alt="Processing" runat="server" />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <b>Loading...</b>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </asp:Panel>
+                                </asp:Panel>
+                            </ProgressTemplate>
+                        </asp:UpdateProgress>
+                    </asp:ContentPlaceHolder>
+                </div>
+                <div class="gridView" id="gridView">
+                    <asp:ContentPlaceHolder ID="GridViewContent" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+        </div>
+    </div>
+    </form>
+</body>
+</html>

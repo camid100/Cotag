@@ -1,0 +1,295 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="db_mita_cotagModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="db_mita_cotagEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tb_AssemblyPoint" EntityType="db_mita_cotagModel.tb_AssemblyPoint" />
+    <EntitySet Name="tb_CotagDescription" EntityType="db_mita_cotagModel.tb_CotagDescription" />
+    <EntitySet Name="tb_CotagDetail" EntityType="db_mita_cotagModel.tb_CotagDetail" />
+    <EntitySet Name="tb_Location" EntityType="db_mita_cotagModel.tb_Location" />
+    <EntitySet Name="tb_Site" EntityType="db_mita_cotagModel.tb_Site" />
+    <EntitySet Name="tb_Status" EntityType="db_mita_cotagModel.tb_Status" />
+    <AssociationSet Name="FK_tb_AssemblyPoint_tb_Site" Association="db_mita_cotagModel.FK_tb_AssemblyPoint_tb_Site">
+      <End Role="tb_Site" EntitySet="tb_Site" />
+      <End Role="tb_AssemblyPoint" EntitySet="tb_AssemblyPoint" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_CotagDesc_tb_CotagDesc" Association="db_mita_cotagModel.FK_tb_CotagDesc_tb_CotagDesc">
+      <End Role="tb_CotagDescription" EntitySet="tb_CotagDescription" />
+      <End Role="tb_CotagDescription1" EntitySet="tb_CotagDescription" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_CotagDetails_tb_CotagDesc" Association="db_mita_cotagModel.FK_tb_CotagDetails_tb_CotagDesc">
+      <End Role="tb_CotagDescription" EntitySet="tb_CotagDescription" />
+      <End Role="tb_CotagDetail" EntitySet="tb_CotagDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_Locations_tb_Site" Association="db_mita_cotagModel.FK_tb_Locations_tb_Site">
+      <End Role="tb_Site" EntitySet="tb_Site" />
+      <End Role="tb_Location" EntitySet="tb_Location" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_CotagDetail_tb_AssemblyPoint" Association="db_mita_cotagModel.FK_tb_CotagDetail_tb_AssemblyPoint">
+      <End Role="tb_AssemblyPoint" EntitySet="tb_AssemblyPoint" />
+      <End Role="tb_CotagDetail" EntitySet="tb_CotagDetail" />
+    </AssociationSet>
+    <EntitySet Name="vw_CotagDetail" EntityType="db_mita_cotagModel.vw_CotagDetail" />
+    <AssociationSet Name="FK_tb_CotagDetail_tb_CotagDetail" Association="db_mita_cotagModel.FK_tb_CotagDetail_tb_CotagDetail">
+      <End Role="tb_CotagDetail" EntitySet="tb_CotagDetail" />
+      <End Role="tb_CotagDetail1" EntitySet="tb_CotagDetail" />
+    </AssociationSet>
+    <EntitySet Name="tb_Companies" EntityType="db_mita_cotagModel.tb_Companies" />
+    <EntitySet Name="tb_Services" EntityType="db_mita_cotagModel.tb_Services" />
+    <AssociationSet Name="FK_tb_CotagDetail_tb_Companies" Association="db_mita_cotagModel.FK_tb_CotagDetail_tb_Companies">
+      <End Role="tb_Companies" EntitySet="tb_Companies" />
+      <End Role="tb_CotagDetail" EntitySet="tb_CotagDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_CotagDetail_tb_Services" Association="db_mita_cotagModel.FK_tb_CotagDetail_tb_Services">
+      <End Role="tb_Services" EntitySet="tb_Services" />
+      <End Role="tb_CotagDetail" EntitySet="tb_CotagDetail" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="tb_AssemblyPoint">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="Site_ID" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="IsLogicallyDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="Createdby" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="Createdon" Type="DateTime" Nullable="false" />
+    <Property Name="Updatedby" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="Updatedon" Type="DateTime" />
+    <Property Name="RecordVersion" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tb_Site" Relationship="db_mita_cotagModel.FK_tb_AssemblyPoint_tb_Site" FromRole="tb_AssemblyPoint" ToRole="tb_Site" />
+    <NavigationProperty Name="tb_CotagDetail" Relationship="db_mita_cotagModel.FK_tb_CotagDetail_tb_AssemblyPoint" FromRole="tb_AssemblyPoint" ToRole="tb_CotagDetail" />
+  </EntityType>
+  <EntityType Name="tb_CotagDescription">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="IsLogicallyDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="Createdby" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="Createdon" Type="DateTime" Nullable="false" />
+    <Property Name="Updatedby" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="Updatedon" Type="DateTime" />
+    <Property Name="RecordVersion" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tb_CotagDescription1" Relationship="db_mita_cotagModel.FK_tb_CotagDesc_tb_CotagDesc" FromRole="tb_CotagDescription" ToRole="tb_CotagDescription1" />
+    <NavigationProperty Name="tb_CotagDescription2" Relationship="db_mita_cotagModel.FK_tb_CotagDesc_tb_CotagDesc" FromRole="tb_CotagDescription1" ToRole="tb_CotagDescription" />
+    <NavigationProperty Name="tb_CotagDetail" Relationship="db_mita_cotagModel.FK_tb_CotagDetails_tb_CotagDesc" FromRole="tb_CotagDescription" ToRole="tb_CotagDetail" />
+  </EntityType>
+  <EntityType Name="tb_CotagDetail">
+    <Key>
+      <PropertyRef Name="CotagNo" />
+    </Key>
+    <Property Name="CotagNo" Type="Int32" Nullable="false" />
+    <Property Name="IDNo" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="StartDate" Type="DateTime" />
+    <Property Name="EndDate" Type="DateTime" />
+    <Property Name="AssemblyPoint_ID" Type="Int32" />
+    <Property Name="telephone" Type="String" />
+    <Property Name="mobile" Type="String" />
+    <Property Name="cotagDesc_ID" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="IsLogicallyDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="Createdby" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="Createdon" Type="DateTime" Nullable="false" />
+    <Property Name="Updatedby" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="Updatedon" Type="DateTime" />
+    <Property Name="RecordVersion" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tb_CotagDescription" Relationship="db_mita_cotagModel.FK_tb_CotagDetails_tb_CotagDesc" FromRole="tb_CotagDetail" ToRole="tb_CotagDescription" />
+    <NavigationProperty Name="tb_AssemblyPoint" Relationship="db_mita_cotagModel.FK_tb_CotagDetail_tb_AssemblyPoint" FromRole="tb_CotagDetail" ToRole="tb_AssemblyPoint" />
+    <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Surname" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Type" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="isProvider" Nullable="false" />
+    <Property Type="Int32" Name="serviceDesc_ID" />
+    <Property Type="Int32" Name="companyDesc_ID" />
+    <Property Type="Int32" Name="projectManager_Cotag" />
+    <NavigationProperty Name="tb_CotagDetail1" Relationship="db_mita_cotagModel.FK_tb_CotagDetail_tb_CotagDetail" FromRole="tb_CotagDetail" ToRole="tb_CotagDetail1" />
+    <NavigationProperty Name="tb_CotagDetail2" Relationship="db_mita_cotagModel.FK_tb_CotagDetail_tb_CotagDetail" FromRole="tb_CotagDetail1" ToRole="tb_CotagDetail" />
+    <NavigationProperty Name="tb_Companies" Relationship="db_mita_cotagModel.FK_tb_CotagDetail_tb_Companies" FromRole="tb_CotagDetail" ToRole="tb_Companies" />
+    <NavigationProperty Name="tb_Services" Relationship="db_mita_cotagModel.FK_tb_CotagDetail_tb_Services" FromRole="tb_CotagDetail" ToRole="tb_Services" />
+  </EntityType>
+  <EntityType Name="tb_Location">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SysAddress" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="Description" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="IsEntry" Type="Boolean" Nullable="false" />
+    <Property Name="IsExit" Type="Boolean" Nullable="false" />
+    <Property Name="Site_ID" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="IsLogicallyDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="Createdby" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="Createdon" Type="DateTime" Nullable="false" />
+    <Property Name="Updatedby" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="Updatedon" Type="DateTime" />
+    <Property Name="RecordVersion" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tb_Site" Relationship="db_mita_cotagModel.FK_tb_Locations_tb_Site" FromRole="tb_Location" ToRole="tb_Site" />
+  </EntityType>
+  <EntityType Name="tb_Site">
+    <Key>
+      <PropertyRef Name="SiteNo" />
+    </Key>
+    <Property Name="SiteNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SiteDescription" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="IsLogicallyDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="Createdby" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="Createdon" Type="DateTime" Nullable="false" />
+    <Property Name="Updatedby" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="Updatedon" Type="DateTime" />
+    <Property Name="RecordVersion" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tb_AssemblyPoint" Relationship="db_mita_cotagModel.FK_tb_AssemblyPoint_tb_Site" FromRole="tb_Site" ToRole="tb_AssemblyPoint" />
+    <NavigationProperty Name="tb_Location" Relationship="db_mita_cotagModel.FK_tb_Locations_tb_Site" FromRole="tb_Site" ToRole="tb_Location" />
+    <Property Type="Int32" Name="StartLevel" Nullable="false" />
+    <Property Type="Int32" Name="EndLevel" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_Status">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StatusDescription" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="IsLogicallyDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="Createdby" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="Createdon" Type="DateTime" Nullable="false" />
+    <Property Name="Updatedby" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="Updatedon" Type="DateTime" />
+    <Property Name="RecordVersion" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_tb_AssemblyPoint_tb_Site">
+    <End Role="tb_Site" Type="db_mita_cotagModel.tb_Site" Multiplicity="1" />
+    <End Role="tb_AssemblyPoint" Type="db_mita_cotagModel.tb_AssemblyPoint" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_Site">
+        <PropertyRef Name="SiteNo" />
+      </Principal>
+      <Dependent Role="tb_AssemblyPoint">
+        <PropertyRef Name="Site_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_CotagDesc_tb_CotagDesc">
+    <End Role="tb_CotagDescription" Type="db_mita_cotagModel.tb_CotagDescription" Multiplicity="1" />
+    <End Role="tb_CotagDescription1" Type="db_mita_cotagModel.tb_CotagDescription" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="tb_CotagDescription">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tb_CotagDescription1">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_CotagDetails_tb_CotagDesc">
+    <End Role="tb_CotagDescription" Type="db_mita_cotagModel.tb_CotagDescription" Multiplicity="0..1" />
+    <End Role="tb_CotagDetail" Type="db_mita_cotagModel.tb_CotagDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_CotagDescription">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tb_CotagDetail">
+        <PropertyRef Name="cotagDesc_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_Locations_tb_Site">
+    <End Role="tb_Site" Type="db_mita_cotagModel.tb_Site" Multiplicity="1" />
+    <End Role="tb_Location" Type="db_mita_cotagModel.tb_Location" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_Site">
+        <PropertyRef Name="SiteNo" />
+      </Principal>
+      <Dependent Role="tb_Location">
+        <PropertyRef Name="Site_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_CotagDetail_tb_AssemblyPoint">
+    <End Type="db_mita_cotagModel.tb_AssemblyPoint" Role="tb_AssemblyPoint" Multiplicity="0..1" />
+    <End Type="db_mita_cotagModel.tb_CotagDetail" Role="tb_CotagDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_AssemblyPoint">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tb_CotagDetail">
+        <PropertyRef Name="AssemblyPoint_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="vw_CotagDetail">
+    <Key>
+      <PropertyRef Name="CotagNo" />
+    </Key>
+    <Property Type="String" Name="IDNo" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="telephone" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="mobile" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Surname" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="DepartmentFullName" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="SectionFullName" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="PositionFullName" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="LocationCode" MaxLength="28" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="SiteName" MaxLength="28" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="CotagNo" Nullable="false" />
+    <Property Type="String" Name="AssemblyPoint" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="OrganisationName" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ContactEmail" MaxLength="60" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK_tb_CotagDetail_tb_CotagDetail">
+    <End Type="db_mita_cotagModel.tb_CotagDetail" Role="tb_CotagDetail" Multiplicity="0..1" />
+    <End Type="db_mita_cotagModel.tb_CotagDetail" Role="tb_CotagDetail1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_CotagDetail">
+        <PropertyRef Name="CotagNo" />
+      </Principal>
+      <Dependent Role="tb_CotagDetail1">
+        <PropertyRef Name="projectManager_Cotag" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="tb_Companies">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Description" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tb_CotagDetail" Relationship="db_mita_cotagModel.FK_tb_CotagDetail_tb_Companies" FromRole="tb_Companies" ToRole="tb_CotagDetail" />
+  </EntityType>
+  <EntityType Name="tb_Services">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Description" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tb_CotagDetail" Relationship="db_mita_cotagModel.FK_tb_CotagDetail_tb_Services" FromRole="tb_Services" ToRole="tb_CotagDetail" />
+  </EntityType>
+  <Association Name="FK_tb_CotagDetail_tb_Companies">
+    <End Type="db_mita_cotagModel.tb_Companies" Role="tb_Companies" Multiplicity="0..1" />
+    <End Type="db_mita_cotagModel.tb_CotagDetail" Role="tb_CotagDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_Companies">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tb_CotagDetail">
+        <PropertyRef Name="companyDesc_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_CotagDetail_tb_Services">
+    <End Type="db_mita_cotagModel.tb_Services" Role="tb_Services" Multiplicity="0..1" />
+    <End Type="db_mita_cotagModel.tb_CotagDetail" Role="tb_CotagDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_Services">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tb_CotagDetail">
+        <PropertyRef Name="serviceDesc_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

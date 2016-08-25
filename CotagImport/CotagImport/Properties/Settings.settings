@@ -1,0 +1,25 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="CotagImport.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="FilePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Users\cassm199\Documents\dc\</Value>
+    </Setting>
+    <Setting Name="firstRun" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="connectionString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=10.80.36.11,9375;Initial Catalog=db_mita_cotag;Integrated Security=SSPI;&lt;/ConnectionString&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=10.80.36.11,9375;Initial Catalog=db_mita_cotag;Integrated Security=SSPI;</Value>
+    </Setting>
+    <Setting Name="HOFilePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">D:\BizTalkApps\Filedrop\Cotag\INBOX\</Value>
+    </Setting>
+    <Setting Name="Site" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

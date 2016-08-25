@@ -1,0 +1,1706 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:element name="GetOrganisations">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:OrganisationRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="OrganisationRequest">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RequestBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Criteria" type="tns:OrganisationCriteria" />
+              <s:element minOccurs="0" maxOccurs="1" name="Organisation" type="tns:OrganisationDto" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="RequestBase">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ClientTag" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AccessToken" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Version" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RequestId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LoadOptions" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="Action" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="OrganisationCriteria">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:CoreCriteria">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="OrganisationGUID" type="s1:guid" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="CoreCriteria">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SortExpression" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="OrganisationDto">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="UniqueGUID" type="s1:guid" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrganisationMarvalCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrganisationFullName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="OrganisationType" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="OrganisationCDRID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsActive" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Created" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Modified" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="RowID" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetOrganisationsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOrganisationsResult" type="tns:OrganisationResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="OrganisationResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ResponseBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Organisations" type="tns:ArrayOfOrganisationDto" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ResponseBase">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Acknowledge" type="tns:AcknowledgeType" />
+          <s:element minOccurs="0" maxOccurs="1" name="CorrelationId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReservationId" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReservationExpires" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Version" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Build" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RowsAffected" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="AcknowledgeType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Failure" />
+          <s:enumeration value="Success" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfOrganisationDto">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="OrganisationDto" nillable="true" type="tns:OrganisationDto" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetDepartments">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:DepartmentRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="DepartmentRequest">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RequestBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Criteria" type="tns:DepartmentCriteria" />
+              <s:element minOccurs="0" maxOccurs="1" name="Department" type="tns:DepartmentDto" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="DepartmentCriteria">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:CoreCriteria">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="DepartmentGUID" type="s1:guid" />
+              <s:element minOccurs="1" maxOccurs="1" name="OrganisationGUID" type="s1:guid" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="DepartmentDto">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="UniqueGUID" type="s1:guid" />
+          <s:element minOccurs="0" maxOccurs="1" name="DepartmentMarvalCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DepartmentFullName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DepartmentCDRID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="OrganisationGUID" type="s1:guid" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsActive" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Created" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Modified" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="RowID" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetDepartmentsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDepartmentsResult" type="tns:DepartmentResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="DepartmentResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ResponseBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Departments" type="tns:ArrayOfDepartmentDto" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfDepartmentDto">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DepartmentDto" nillable="true" type="tns:DepartmentDto" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetSections">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:SectionRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SectionRequest">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RequestBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Criteria" type="tns:SectionCriteria" />
+              <s:element minOccurs="0" maxOccurs="1" name="Section" type="tns:SectionDto" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="SectionCriteria">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:CoreCriteria">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="SectionGUID" type="s1:guid" />
+              <s:element minOccurs="1" maxOccurs="1" name="DepartmentGUID" type="s1:guid" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="SectionDto">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="UniqueGUID" type="s1:guid" />
+          <s:element minOccurs="0" maxOccurs="1" name="SectionMarvalCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SectionFullName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SectionCDRID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DepartmentGUID" type="s1:guid" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsActive" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Created" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Modified" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="RowID" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetSectionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSectionsResult" type="tns:SectionResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SectionResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ResponseBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Sections" type="tns:ArrayOfSectionDto" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfSectionDto">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SectionDto" nillable="true" type="tns:SectionDto" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetSites">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:SiteRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SiteRequest">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RequestBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Criteria" type="tns:SiteCriteria" />
+              <s:element minOccurs="0" maxOccurs="1" name="Site" type="tns:SiteDto" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="SiteCriteria">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:CoreCriteria">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="SiteGUID" type="s1:guid" />
+              <s:element minOccurs="1" maxOccurs="1" name="OrganisationGUID" type="s1:guid" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="SiteDto">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="UniqueGUID" type="s1:guid" />
+          <s:element minOccurs="0" maxOccurs="1" name="SiteMarvalCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SiteName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SiteNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SiteSMSCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SiteStreetGUID" type="s1:guid" />
+          <s:element minOccurs="0" maxOccurs="1" name="SitePostCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SiteCityGUID" type="s1:guid" />
+          <s:element minOccurs="1" maxOccurs="1" name="SiteCountryGUID" type="s1:guid" />
+          <s:element minOccurs="1" maxOccurs="1" name="LocationCDRID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SitePhone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SiteZone" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsActive" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Created" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Modified" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="RowID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SiteFullName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetSitesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSitesResult" type="tns:SiteResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SiteResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ResponseBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Sites" type="tns:ArrayOfSiteDto" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfSiteDto">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SiteDto" nillable="true" type="tns:SiteDto" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetLocations">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:LocationRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="LocationRequest">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RequestBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Criteria" type="tns:LocationCriteria" />
+              <s:element minOccurs="0" maxOccurs="1" name="Location" type="tns:LocationDto" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="LocationCriteria">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:CoreCriteria">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="LocationGUID" type="s1:guid" />
+              <s:element minOccurs="1" maxOccurs="1" name="SiteGUID" type="s1:guid" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="LocationDto">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="UniqueGUID" type="s1:guid" />
+          <s:element minOccurs="1" maxOccurs="1" name="LocationSiteGUID" type="s1:guid" />
+          <s:element minOccurs="0" maxOccurs="1" name="LocationCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LocationDescription" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LocationInMarval" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="LocationCDRID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsActive" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Created" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Modified" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="RowID" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetLocationsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLocationsResult" type="tns:LocationResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="LocationResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ResponseBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Locations" type="tns:ArrayOfLocationDto" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfLocationDto">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="LocationDto" nillable="true" type="tns:LocationDto" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetPositions">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:PositionRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PositionRequest">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RequestBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Criteria" type="tns:PositionCriteria" />
+              <s:element minOccurs="0" maxOccurs="1" name="Position" type="tns:PositionDto" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PositionCriteria">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:CoreCriteria">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="PositionGUID" type="s1:guid" />
+              <s:element minOccurs="1" maxOccurs="1" name="SectionGUID" type="s1:guid" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PositionDto">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="UniqueID" type="s1:guid" />
+          <s:element minOccurs="0" maxOccurs="1" name="PositionCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PositionCDRID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PositionOrganisationID" type="s1:guid" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsActive" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Created" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Modified" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetPositionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPositionsResult" type="tns:PositionResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PositionResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ResponseBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Positions" type="tns:ArrayOfPositionDto" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfPositionDto">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PositionDto" nillable="true" type="tns:PositionDto" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetContacts">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:ContactInfoRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ContactInfoRequest">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RequestBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Criteria" type="tns:ContactInfoCriteria" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ContactInfoCriteria">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:CoreCriteria">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="ContactInfoGuid" type="s1:guid" />
+              <s:element minOccurs="1" maxOccurs="1" name="IsActive" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="IDCard" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ContactInfo" type="tns:ContactInfoDto" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ContactInfoDto">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="UniquGuid" type="s1:guid" />
+          <s:element minOccurs="0" maxOccurs="1" name="IdentityCard" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsPassportNumber" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Gender" type="s1:char" />
+          <s:element minOccurs="0" maxOccurs="1" name="Salutation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Surname" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MiddleName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsVIP" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsActive" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Created" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Modified" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="RowID" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetContactsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetContactsResult" type="tns:ContactInfoResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ContactInfoResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ResponseBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Contacts" type="tns:ArrayOfContactInfoDto" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfContactInfoDto">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ContactInfoDto" nillable="true" type="tns:ContactInfoDto" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ClientCreate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:ClientRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ClientRequest">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RequestBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Criteria" type="tns:ClientCriteria" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ClientCriteria">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:CoreCriteria">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Client" type="tns:ClientDto" />
+              <s:element minOccurs="1" maxOccurs="1" name="ClientGUID" type="s1:guid" />
+              <s:element minOccurs="0" maxOccurs="1" name="ContactInfo" type="tns:ContactInfoDto" />
+              <s:element minOccurs="0" maxOccurs="1" name="Phones" type="tns:ArrayOfPhoneDto" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ClientDto">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="UniqueGUID" type="s1:guid" />
+          <s:element minOccurs="1" maxOccurs="1" name="ContactInfoGUID" type="s1:guid" />
+          <s:element minOccurs="1" maxOccurs="1" name="ClientType" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="OrganisationGUID" type="s1:guid" />
+          <s:element minOccurs="1" maxOccurs="1" name="DepartmentGUID" type="s1:guid" />
+          <s:element minOccurs="1" maxOccurs="1" name="SectionGUID" type="s1:guid" />
+          <s:element minOccurs="1" maxOccurs="1" name="PositionGUID" type="s1:guid" />
+          <s:element minOccurs="1" maxOccurs="1" name="SiteGUID" type="s1:guid" />
+          <s:element minOccurs="1" maxOccurs="1" name="LocationGUID" type="s1:guid" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContactEmail" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsActive" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Created" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Modified" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfPhoneDto">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PhoneDto" nillable="true" type="tns:PhoneDto" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PhoneDto">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="PhoneGUID" type="s1:guid" />
+          <s:element minOccurs="1" maxOccurs="1" name="PhoneClientGUID" type="s1:guid" />
+          <s:element minOccurs="0" maxOccurs="1" name="PhoneNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PhoneType" type="tns:PhoneTypes" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsDefault" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsActive" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Created" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Modified" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="PhoneTypes">
+        <s:restriction base="s:string">
+          <s:enumeration value="NotSet" />
+          <s:enumeration value="Phone" />
+          <s:enumeration value="Fax" />
+          <s:enumeration value="Mobile" />
+          <s:enumeration value="Pager" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="ClientCreateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ClientCreateResult" type="tns:ClientResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ClientResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ResponseBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Clients" type="tns:ArrayOfClientDto" />
+              <s:element minOccurs="1" maxOccurs="1" name="ClientUpdated" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="ClientPhones" type="tns:ArrayOfPhoneDto" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfClientDto">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ClientDto" nillable="true" type="tns:ClientDto" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ClientUpdate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:ClientRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ClientUpdateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ClientUpdateResult" type="tns:ClientResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetClient">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:ClientRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetClientResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetClientResult" type="tns:ClientResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:UserDetailsViewRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="UserDetailsViewRequest">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RequestBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Criteria" type="tns:UserDetailsViewCriteria" />
+              <s:element minOccurs="0" maxOccurs="1" name="UserDetails" type="tns:UserDetailsViewDto" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="UserDetailsViewCriteria">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:CoreCriteria">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="IDCard" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="LoginCode" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="UserDetailsViewDto">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="IdentityCard" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsPassportNumber" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Surname" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MiddleName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ClientType" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContactEmail" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrganisationFullName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrganisationMarvalCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="OrganisationCDRID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DepartmentFullName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DepartmentCDRID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SectionFullName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SectionCDRID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PositionCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PositionCDRID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SiteName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SiteNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SiteCDRID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="LocationCDRID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="LocationDescription" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SitePostCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StreetCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="StreetCDRID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CityCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CityCDRID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CountryName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CountryCDRID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PhoneNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FaxNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrimaryLogin" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="OrganisationGUID" type="s1:guid" />
+          <s:element minOccurs="1" maxOccurs="1" name="DepartmentGUID" type="s1:guid" />
+          <s:element minOccurs="1" maxOccurs="1" name="SectionGUID" type="s1:guid" />
+          <s:element minOccurs="1" maxOccurs="1" name="PositionGUID" type="s1:guid" />
+          <s:element minOccurs="1" maxOccurs="1" name="SiteGUID" type="s1:guid" />
+          <s:element minOccurs="1" maxOccurs="1" name="LocationGUID" type="s1:guid" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetUserDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserDetailsResult" type="tns:UserDetailsViewResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="UserDetailsViewResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ResponseBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="UserDetails" type="tns:ArrayOfUserDetailsViewDto" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfUserDetailsViewDto">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="UserDetailsViewDto" nillable="true" type="tns:UserDetailsViewDto" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="InsertUsers">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:ActiveDirectoryUserRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ActiveDirectoryUserRequest">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RequestBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Criteria" type="tns:ActiveDirectoryUserCriteria" />
+              <s:element minOccurs="0" maxOccurs="1" name="ADUsers" type="tns:ArrayOfActiveDirectoryUserDto" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ActiveDirectoryUserCriteria">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:CoreCriteria" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfActiveDirectoryUserDto">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ActiveDirectoryUserDto" nillable="true" type="tns:ActiveDirectoryUserDto" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ActiveDirectoryUserDto">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="UniqueGUID" type="s1:guid" />
+          <s:element minOccurs="0" maxOccurs="1" name="DistinguishedName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sAMAccountName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ST" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Created" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="InsertUsersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InsertUsersResult" type="tns:ActiveDirectoryUserResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ActiveDirectoryUserResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ResponseBase" />
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="PhoneAdd">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:PhoneRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PhoneRequest">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RequestBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Criteria" type="tns:PhoneCriteria" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PhoneCriteria">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:CoreCriteria">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Phone" type="tns:PhoneDto" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="PhoneAddResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PhoneAddResult" type="tns:PhoneResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PhoneResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ResponseBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Phones" type="tns:ArrayOfPhoneDto" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="PhoneGet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:PhoneRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PhoneGetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PhoneGetResult" type="tns:PhoneResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PhoneUpdate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:PhoneRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PhoneUpdateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PhoneUpdateResult" type="tns:PhoneResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddPortalService">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:PortalServiceRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PortalServiceRequest">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RequestBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Criteria" type="tns:PortalServiceCriteria" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PortalServiceCriteria">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ContactID" type="s1:guid" />
+          <s:element minOccurs="1" maxOccurs="1" name="ClientID" type="s1:guid" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmailAddress" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddPortalServiceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddPortalServiceResult" type="tns:PortalServiceResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PortalServiceResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ResponseBase">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="ServiceCreated" type="s:boolean" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetMailPackages">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:MailPackageRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="MailPackageRequest">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RequestBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Criteria" type="tns:MailPackageCriteria" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="MailPackageCriteria">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:CoreCriteria">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="PackageID" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="PackageName" nillable="true" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="IsActive" nillable="true" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="MailPackage" type="tns:MailPackageDto" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="MailPackageDto">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="PackageID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PackageName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="delivContLength" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="submissionContLength" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="mDBStorageQuota" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="mDBOverQuotaLimit" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="mDBOverHardQuotaLimit" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsActive" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Created" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Modified" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="LogicallyDeleted" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetMailPackagesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMailPackagesResult" type="tns:MailPackageResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="MailPackageResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ResponseBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Packages" type="tns:ArrayOfMailPackageDto" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfMailPackageDto">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MailPackageDto" nillable="true" type="tns:MailPackageDto" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddMailPackage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:MailPackageRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddMailPackageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddMailPackageResult" type="tns:MailPackageResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateMailPackage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:MailPackageRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateMailPackageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateMailPackageResult" type="tns:MailPackageResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddMailRule">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:MailRuleRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="MailRuleRequest">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RequestBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Criteria" type="tns:MailRuleCriteria" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="MailRuleCriteria">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:CoreCriteria">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="MailRule" type="tns:MailRuleDto" />
+              <s:element minOccurs="1" maxOccurs="1" name="MailRuleID" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="IsActive" nillable="true" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="PackageID" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="PackageName" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="OrganisationID" nillable="true" type="s1:guid" />
+              <s:element minOccurs="0" maxOccurs="1" name="OrganisationCode" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="OrganisationFullName" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="DepartmentID" nillable="true" type="s1:guid" />
+              <s:element minOccurs="0" maxOccurs="1" name="DepartmentCode" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="DepartmentName" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="SectionID" nillable="true" type="s1:guid" />
+              <s:element minOccurs="0" maxOccurs="1" name="SectionCode" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="SectionName" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="MailRuleDto">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="MailRuleID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="OrganisationGUID" nillable="true" type="s1:guid" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrganisationCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DepartmentGUID" nillable="true" type="s1:guid" />
+          <s:element minOccurs="0" maxOccurs="1" name="DepartmentCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SectionGUID" nillable="true" type="s1:guid" />
+          <s:element minOccurs="0" maxOccurs="1" name="SectionCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PackageID" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PackageName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MailOrganisationOU" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MailGroupOU" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MailboxGroup" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MailSuffix" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MailboxStore" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserDescription" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AssociatedDomain" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AssociatedDomainOU" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HomeDirectory" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HomeDrive" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ScriptPath" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DefaultUserGroup" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Created" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Modified" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsActive" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="LogicallyDeleted" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddMailRuleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddMailRuleResult" type="tns:MailRuleResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="MailRuleResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ResponseBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="MailRules" type="tns:ArrayOfMailRuleDto" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfMailRuleDto">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MailRuleDto" nillable="true" type="tns:MailRuleDto" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetMailRules">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:MailRuleRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMailRulesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMailRulesResult" type="tns:MailRuleResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateMailRule">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:MailRuleRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateMailRuleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateMailRuleResult" type="tns:MailRuleResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="guid">
+        <s:restriction base="s:string">
+          <s:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="char">
+        <s:restriction base="s:unsignedShort" />
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetOrganisationsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOrganisations" />
+  </wsdl:message>
+  <wsdl:message name="GetOrganisationsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOrganisationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDepartmentsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDepartments" />
+  </wsdl:message>
+  <wsdl:message name="GetDepartmentsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDepartmentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSectionsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSections" />
+  </wsdl:message>
+  <wsdl:message name="GetSectionsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSectionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSitesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSites" />
+  </wsdl:message>
+  <wsdl:message name="GetSitesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSitesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLocationsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLocations" />
+  </wsdl:message>
+  <wsdl:message name="GetLocationsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLocationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPositionsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPositions" />
+  </wsdl:message>
+  <wsdl:message name="GetPositionsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPositionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetContactsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetContacts" />
+  </wsdl:message>
+  <wsdl:message name="GetContactsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetContactsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ClientCreateSoapIn">
+    <wsdl:part name="parameters" element="tns:ClientCreate" />
+  </wsdl:message>
+  <wsdl:message name="ClientCreateSoapOut">
+    <wsdl:part name="parameters" element="tns:ClientCreateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ClientUpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:ClientUpdate" />
+  </wsdl:message>
+  <wsdl:message name="ClientUpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:ClientUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetClientSoapIn">
+    <wsdl:part name="parameters" element="tns:GetClient" />
+  </wsdl:message>
+  <wsdl:message name="GetClientSoapOut">
+    <wsdl:part name="parameters" element="tns:GetClientResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetUserDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertUsersSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertUsers" />
+  </wsdl:message>
+  <wsdl:message name="InsertUsersSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="PhoneAddSoapIn">
+    <wsdl:part name="parameters" element="tns:PhoneAdd" />
+  </wsdl:message>
+  <wsdl:message name="PhoneAddSoapOut">
+    <wsdl:part name="parameters" element="tns:PhoneAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="PhoneGetSoapIn">
+    <wsdl:part name="parameters" element="tns:PhoneGet" />
+  </wsdl:message>
+  <wsdl:message name="PhoneGetSoapOut">
+    <wsdl:part name="parameters" element="tns:PhoneGetResponse" />
+  </wsdl:message>
+  <wsdl:message name="PhoneUpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:PhoneUpdate" />
+  </wsdl:message>
+  <wsdl:message name="PhoneUpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:PhoneUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddPortalServiceSoapIn">
+    <wsdl:part name="parameters" element="tns:AddPortalService" />
+  </wsdl:message>
+  <wsdl:message name="AddPortalServiceSoapOut">
+    <wsdl:part name="parameters" element="tns:AddPortalServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMailPackagesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMailPackages" />
+  </wsdl:message>
+  <wsdl:message name="GetMailPackagesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMailPackagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddMailPackageSoapIn">
+    <wsdl:part name="parameters" element="tns:AddMailPackage" />
+  </wsdl:message>
+  <wsdl:message name="AddMailPackageSoapOut">
+    <wsdl:part name="parameters" element="tns:AddMailPackageResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateMailPackageSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateMailPackage" />
+  </wsdl:message>
+  <wsdl:message name="UpdateMailPackageSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateMailPackageResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddMailRuleSoapIn">
+    <wsdl:part name="parameters" element="tns:AddMailRule" />
+  </wsdl:message>
+  <wsdl:message name="AddMailRuleSoapOut">
+    <wsdl:part name="parameters" element="tns:AddMailRuleResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMailRulesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMailRules" />
+  </wsdl:message>
+  <wsdl:message name="GetMailRulesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMailRulesResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateMailRuleSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateMailRule" />
+  </wsdl:message>
+  <wsdl:message name="UpdateMailRuleSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateMailRuleResponse" />
+  </wsdl:message>
+  <wsdl:portType name="TaskManagementService">
+    <wsdl:operation name="GetOrganisations">
+      <wsdl:input message="tns:GetOrganisationsSoapIn" />
+      <wsdl:output message="tns:GetOrganisationsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDepartments">
+      <wsdl:input message="tns:GetDepartmentsSoapIn" />
+      <wsdl:output message="tns:GetDepartmentsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSections">
+      <wsdl:input message="tns:GetSectionsSoapIn" />
+      <wsdl:output message="tns:GetSectionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSites">
+      <wsdl:input message="tns:GetSitesSoapIn" />
+      <wsdl:output message="tns:GetSitesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLocations">
+      <wsdl:input message="tns:GetLocationsSoapIn" />
+      <wsdl:output message="tns:GetLocationsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPositions">
+      <wsdl:input message="tns:GetPositionsSoapIn" />
+      <wsdl:output message="tns:GetPositionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContacts">
+      <wsdl:input message="tns:GetContactsSoapIn" />
+      <wsdl:output message="tns:GetContactsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ClientCreate">
+      <wsdl:input message="tns:ClientCreateSoapIn" />
+      <wsdl:output message="tns:ClientCreateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ClientUpdate">
+      <wsdl:input message="tns:ClientUpdateSoapIn" />
+      <wsdl:output message="tns:ClientUpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClient">
+      <wsdl:input message="tns:GetClientSoapIn" />
+      <wsdl:output message="tns:GetClientSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserDetails">
+      <wsdl:input message="tns:GetUserDetailsSoapIn" />
+      <wsdl:output message="tns:GetUserDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertUsers">
+      <wsdl:input message="tns:InsertUsersSoapIn" />
+      <wsdl:output message="tns:InsertUsersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PhoneAdd">
+      <wsdl:input message="tns:PhoneAddSoapIn" />
+      <wsdl:output message="tns:PhoneAddSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PhoneGet">
+      <wsdl:input message="tns:PhoneGetSoapIn" />
+      <wsdl:output message="tns:PhoneGetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PhoneUpdate">
+      <wsdl:input message="tns:PhoneUpdateSoapIn" />
+      <wsdl:output message="tns:PhoneUpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddPortalService">
+      <wsdl:input message="tns:AddPortalServiceSoapIn" />
+      <wsdl:output message="tns:AddPortalServiceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMailPackages">
+      <wsdl:input message="tns:GetMailPackagesSoapIn" />
+      <wsdl:output message="tns:GetMailPackagesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddMailPackage">
+      <wsdl:input message="tns:AddMailPackageSoapIn" />
+      <wsdl:output message="tns:AddMailPackageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMailPackage">
+      <wsdl:input message="tns:UpdateMailPackageSoapIn" />
+      <wsdl:output message="tns:UpdateMailPackageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddMailRule">
+      <wsdl:input message="tns:AddMailRuleSoapIn" />
+      <wsdl:output message="tns:AddMailRuleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMailRules">
+      <wsdl:input message="tns:GetMailRulesSoapIn" />
+      <wsdl:output message="tns:GetMailRulesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMailRule">
+      <wsdl:input message="tns:UpdateMailRuleSoapIn" />
+      <wsdl:output message="tns:UpdateMailRuleSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TaskManagementService" type="tns:TaskManagementService">
+    <wsdl:documentation>
+      <wsi:Claim conformsTo="http://ws-i.org/profiles/basic/1.1" xmlns:wsi="http://ws-i.org/schemas/conformanceClaim/" />
+    </wsdl:documentation>
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetOrganisations">
+      <soap:operation soapAction="http://tempuri.org/GetOrganisations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDepartments">
+      <soap:operation soapAction="http://tempuri.org/GetDepartments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSections">
+      <soap:operation soapAction="http://tempuri.org/GetSections" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSites">
+      <soap:operation soapAction="http://tempuri.org/GetSites" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLocations">
+      <soap:operation soapAction="http://tempuri.org/GetLocations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPositions">
+      <soap:operation soapAction="http://tempuri.org/GetPositions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContacts">
+      <soap:operation soapAction="http://tempuri.org/GetContacts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClientCreate">
+      <soap:operation soapAction="http://tempuri.org/ClientCreate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClientUpdate">
+      <soap:operation soapAction="http://tempuri.org/ClientUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClient">
+      <soap:operation soapAction="http://tempuri.org/GetClient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserDetails">
+      <soap:operation soapAction="http://tempuri.org/GetUserDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertUsers">
+      <soap:operation soapAction="http://tempuri.org/InsertUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PhoneAdd">
+      <soap:operation soapAction="http://tempuri.org/PhoneAdd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PhoneGet">
+      <soap:operation soapAction="http://tempuri.org/PhoneGet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PhoneUpdate">
+      <soap:operation soapAction="http://tempuri.org/PhoneUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddPortalService">
+      <soap:operation soapAction="http://tempuri.org/AddPortalService" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMailPackages">
+      <soap:operation soapAction="http://tempuri.org/GetMailPackages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMailPackage">
+      <soap:operation soapAction="http://tempuri.org/AddMailPackage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMailPackage">
+      <soap:operation soapAction="http://tempuri.org/UpdateMailPackage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMailRule">
+      <soap:operation soapAction="http://tempuri.org/AddMailRule" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMailRules">
+      <soap:operation soapAction="http://tempuri.org/GetMailRules" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMailRule">
+      <soap:operation soapAction="http://tempuri.org/UpdateMailRule" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TaskManagementService1" type="tns:TaskManagementService">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetOrganisations">
+      <soap12:operation soapAction="http://tempuri.org/GetOrganisations" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDepartments">
+      <soap12:operation soapAction="http://tempuri.org/GetDepartments" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSections">
+      <soap12:operation soapAction="http://tempuri.org/GetSections" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSites">
+      <soap12:operation soapAction="http://tempuri.org/GetSites" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLocations">
+      <soap12:operation soapAction="http://tempuri.org/GetLocations" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPositions">
+      <soap12:operation soapAction="http://tempuri.org/GetPositions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContacts">
+      <soap12:operation soapAction="http://tempuri.org/GetContacts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClientCreate">
+      <soap12:operation soapAction="http://tempuri.org/ClientCreate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClientUpdate">
+      <soap12:operation soapAction="http://tempuri.org/ClientUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClient">
+      <soap12:operation soapAction="http://tempuri.org/GetClient" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserDetails">
+      <soap12:operation soapAction="http://tempuri.org/GetUserDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertUsers">
+      <soap12:operation soapAction="http://tempuri.org/InsertUsers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PhoneAdd">
+      <soap12:operation soapAction="http://tempuri.org/PhoneAdd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PhoneGet">
+      <soap12:operation soapAction="http://tempuri.org/PhoneGet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PhoneUpdate">
+      <soap12:operation soapAction="http://tempuri.org/PhoneUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddPortalService">
+      <soap12:operation soapAction="http://tempuri.org/AddPortalService" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMailPackages">
+      <soap12:operation soapAction="http://tempuri.org/GetMailPackages" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMailPackage">
+      <soap12:operation soapAction="http://tempuri.org/AddMailPackage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMailPackage">
+      <soap12:operation soapAction="http://tempuri.org/UpdateMailPackage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMailRule">
+      <soap12:operation soapAction="http://tempuri.org/AddMailRule" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMailRules">
+      <soap12:operation soapAction="http://tempuri.org/GetMailRules" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMailRule">
+      <soap12:operation soapAction="http://tempuri.org/UpdateMailRule" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TaskManagementService">
+    <wsdl:port name="TaskManagementService" binding="tns:TaskManagementService">
+      <soap:address location="http://test.integrationservices.wcf/TMS/TMSService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="TaskManagementService1" binding="tns:TaskManagementService1">
+      <soap12:address location="http://test.integrationservices.wcf/TMS/TMSService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

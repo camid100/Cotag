@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+    <siteMapNode url="Default.aspx" title="Cotag Administration"  description="Contains Cotag administrative functions">
+      <siteMapNode url="AssemblyPoints.aspx" title="Assembly Points"  description="Add/Modify Assembly Points" />
+      <siteMapNode url="CotagDetails.aspx" title="Cotag Details"  description="Add/Modify Cotag Details" />
+      <siteMapNode url="CotagDescription.aspx" title="Cotag Description"  description="Add/Modify Cotag Descriptions" />
+      <siteMapNode url="CotagZones.aspx" title="Cotag Zones"  description="Cotag Zones" />
+      <siteMapNode url="Companies.aspx" title="Companies"  description="Add/Modify Companies" />
+      <siteMapNode url="Locations.aspx" title="Locations"  description="Add/Modify Locations" />
+      <siteMapNode url="Sites.aspx" title="Sites"  description="Add/Modify Sites" />
+      <siteMapNode url="Status.aspx" title="Status" description="Add/Modify Statuses" />
+      <siteMapNode url="Times.aspx" title="Times" description="Times" />
+    <siteMapNode url="Utils.aspx" title="Utils" description="Utilities" />
+      <siteMapNode url="Zones.aspx" title="Zones" description="Zones" />
+      <siteMapNode url="ZoneTimes.aspx" title="Time Frames" description="Time Frames" />
+  </siteMapNode>
+</siteMap>
+
